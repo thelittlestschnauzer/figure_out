@@ -1,0 +1,12 @@
+<h2><%= @recipe.title %></h2>
+
+<h3>description: </h3>
+<p><%= @recipe.description %></p>
+
+<div>
+  <ul class="recipes-links">
+    <li><%= link_to 'back', recipes_path %></li>
+    <li><%= link_to 'edit', edit_recipe_path(@recipe) %></li>
+    <li><%= link_to 'delete', recipe_path(@recipe), data: { confirm: 'Are you sure you want to delete: #{@recipe.title}?' }, method: :delete %></li>
+  </ul>
+</div>
