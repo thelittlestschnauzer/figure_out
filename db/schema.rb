@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_10_185756) do
+ActiveRecord::Schema.define(version: 2018_09_11_022437) do
+
+  create_table "meals", force: :cascade do |t|
+    t.date "date", null: false
+    t.integer "planner_id", null: false
+    t.integer "recipe_id", null: false
+    t.index ["planner_id"], name: "index_meals_on_planner_id"
+    t.index ["recipe_id"], name: "index_meals_on_recipe_id"
+  end
+
+  create_table "planners", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_planners_on_user_id"
+  end
 
   create_table "recipes", force: :cascade do |t|
     t.string "title"
