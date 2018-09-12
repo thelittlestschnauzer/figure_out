@@ -1,0 +1,19 @@
+<h1>Let's Plan Our Menu</h1>
+
+<%= form_for @planner, url: new_planner_path, method: 'GET' do |f| %>
+  <div class="form-control">
+    <%= f.label :start_date %>
+    <%= f.text_field :start_date, type: "date" %>
+  </div>
+
+  <div class="form-control">
+    <%= f.label :end_date %>
+    <%= f.text_field :end_date, type: 'date' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "What's for dinner?" %>
+  </div>
+<% end %>
+
+<%= render 'form' %>
